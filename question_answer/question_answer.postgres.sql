@@ -18,8 +18,7 @@ CREATE TABLE questions (
   body TEXT NOT NULL,
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL,
-  FOREIGN KEY (author_id) REFERENCES users(id),
-  FOREIGN KEY (best_answer_id) REFERENCES answers(id)
+  FOREIGN KEY (author_id) REFERENCES users(id)
 );
 
 CREATE INDEX ON questions(author_id);
@@ -31,9 +30,11 @@ CREATE TABLE answers (
   body TEXT NOT NULL,
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL,
-  FOREIGN KEY (author_id) REFERENCES users(id),
-  FOREIGN KEY (question_id) REFERENCES questions(id)
+  FOREIGN KEY (author_id) REFERENCES users(id)
 );
+
+ALTER TABLE answers ADD FOREIGN KEY (question_id) REFERENCES questions(id);
+ALTER TABLE questions ADD FOREIGN KEY (best_answer_id) REFERENCES answers(id);
 
 CREATE UNIQUE INDEX ON answers(author_id, question_id);
 CREATE INDEX ON answers(question_id);
@@ -45,7 +46,7 @@ CREATE TABLE answer_votes (
   score INTEGER NOT NULL,
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL,
-  FOREIGN KEY (answer_id) REFERENCES posts(id),
+  FOREIGN KEY (answer_id) REFERENCES answers(id),
   FOREIGN KEY (voter_id) REFERENCES users(id)
 );
 
