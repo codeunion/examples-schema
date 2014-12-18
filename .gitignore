@@ -1,0 +1,72 @@
+## Specific to this project:
+.env
+*.db
+*.sqlite3
+
+## Specific to Mac OS X:
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# OS X thumbnails
+._*
+
+## Specific to Windows:
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+## Specific to Ruby:
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+## Ruby documentation cache and generated files:
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+
+## Ruby environment normalisation:
+/.bundle/
+/lib/bundler/man/
+.rvmrc
+
+## Specific to Cloud9 IDE:
+.c9revisions
+.c9
+
+## Specific to Vim:
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+## Specific to Sublime Text:
+# Cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# Workspace files are user-specific
+*.sublime-workspace
+
+# sftp configuration file
+sftp-config.json
+
+## Specific to RubyMotion:
+.dat*
+.repl_history
+build/
