@@ -14,6 +14,11 @@ CREATE TABLE users (
 
 CREATE UNIQUE INDEX ON users(email);
 
+CREATE TABLE phrases (
+  id SERIAL PRIMARY KEY,
+  body VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE games (
   id SERIAL PRIMARY KEY,
   player_id INTEGER NOT NULL,
@@ -27,11 +32,6 @@ CREATE TABLE games (
 );
 
 CREATE INDEX ON games(player_id);
-
-CREATE TABLE phrases (
-  id SERIAL PRIMARY KEY,
-  body VARCHAR(255) NOT NULL
-)
 
 CREATE TABLE turns (
   id SERIAL PRIMARY KEY,
