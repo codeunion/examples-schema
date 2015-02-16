@@ -1,0 +1,12 @@
+{
+  "category": "example",
+  "tags": [
+    "sql",
+    "databases",
+    "schema",
+    "tables",
+    "constraints",
+    "foreign-keys"
+  ],
+  "notes": "Half project, half example."
+}
