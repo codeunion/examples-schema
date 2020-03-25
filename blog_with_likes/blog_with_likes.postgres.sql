@@ -6,7 +6,7 @@ CREATE TABLE users (
   updated_at TIMESTAMP NOT NULL
 );
 
-CREATE UNIQUE INDEX ON users(email);
+ALTER TABLE users ADD UNIQUE (email);
 
 CREATE TABLE articles (
   id SERIAL PRIMARY KEY,
@@ -30,5 +30,5 @@ CREATE TABLE likes (
   FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
-CREATE UNIQUE INDEX ON likes(article_id, user_id);
+ALTER TABLE likes ADD UNIQUE (article_id, user_id);
 CREATE INDEX ON likes(user_id);

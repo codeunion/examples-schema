@@ -6,7 +6,7 @@ CREATE TABLE users (
   updated_at TIMESTAMP NOT NULL
 );
 
-CREATE UNIQUE INDEX ON users(email);
+ALTER TABLE users ADD UNIQUE (email);
 
 CREATE TABLE articles (
   id SERIAL PRIMARY KEY,
@@ -27,7 +27,7 @@ CREATE TABLE tags (
   updated_at TIMESTAMP NOT NULL
 );
 
-CREATE UNIQUE INDEX ON tags(name);
+ALTER TABLE tags ADD UNIQUE (name);
 
 CREATE TABLE taggings (
   id SERIAL PRIMARY KEY,
@@ -39,5 +39,5 @@ CREATE TABLE taggings (
   FOREIGN KEY (tag_id) REFERENCES tags(id)
 );
 
-CREATE UNIQUE INDEX ON taggings(article_id, tag_id);
+ALTER TABLE taggings ADD UNIQUE (article_id, tag_id);
 CREATE INDEX ON taggings(tag_id);

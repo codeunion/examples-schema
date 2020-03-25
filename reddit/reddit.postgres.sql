@@ -7,8 +7,8 @@ CREATE TABLE users (
   updated_at TIMESTAMP NOT NULL
 );
 
-CREATE UNIQUE INDEX ON users(username);
-CREATE UNIQUE INDEX ON users(email);
+ALTER TABLE users ADD UNIQUE (username);
+ALTER TABLE users ADD UNIQUE (email);
 
 CREATE TABLE submissions (
   id SERIAL PRIMARY KEY,
@@ -32,7 +32,7 @@ CREATE TABLE submission_votes (
   FOREIGN KEY (voter_id) REFERENCES users(id)
 );
 
-CREATE UNIQUE INDEX ON submission_votes(submission_id, voter_id);
+ALTER TABLE submission_votes ADD UNIQUE (submission_id, voter_id);
 CREATE INDEX ON submission_votes(voter_id);
 
 CREATE TABLE comments (
@@ -63,5 +63,5 @@ CREATE TABLE comment_votes (
   FOREIGN KEY (voter_id) REFERENCES users(id)
 );
 
-CREATE UNIQUE INDEX ON comment_votes(comment_id, voter_id);
+ALTER TABLE comment_votes ADD UNIQUE (comment_id, voter_id);
 CREATE INDEX ON comment_votes(voter_id);

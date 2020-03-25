@@ -12,7 +12,7 @@ CREATE TABLE users (
   updated_at TIMESTAMP NOT NULL
 );
 
-CREATE UNIQUE INDEX ON users(email);
+ALTER TABLE users ADD UNIQUE (email);
 
 CREATE TABLE phrases (
   id SERIAL PRIMARY KEY,
@@ -42,4 +42,4 @@ CREATE TABLE turns (
 );
 
 -- For a given game, a player can't guess the same letter twice.
-CREATE UNIQUE INDEX ON turns(game_id, letter_guessed);
+ALTER TABLE turns ADD UNIQUE (game_id, letter_guessed);

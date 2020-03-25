@@ -6,7 +6,7 @@ CREATE TABLE users (
   updated_at TIMESTAMP NOT NULL
 );
 
-CREATE UNIQUE INDEX ON users(email);
+ALTER TABLE users ADD UNIQUE (email);
 
 CREATE TABLE albums (
   id SERIAL PRIMARY KEY,

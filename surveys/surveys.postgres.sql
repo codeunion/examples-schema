@@ -6,7 +6,7 @@ CREATE TABLE users (
   updated_at TIMESTAMP NOT NULL
 );
 
-CREATE UNIQUE INDEX ON users(email);
+ALTER TABLE users ADD UNIQUE (email);
 
 CREATE TABLE surveys (
   id SERIAL PRIMARY KEY,
@@ -38,7 +38,7 @@ CREATE TABLE survey_responses (
   FOREIGN KEY (respondent_id) REFERENCES users(id)
 );
 
-CREATE UNIQUE INDEX ON survey_responses(survey_id, respondent_id);
+ALTER TABLE survey_responses ADD UNIQUE (survey_id, respondent_id);
 CREATE INDEX ON survey_responses(respondent_id);
 
 CREATE TABLE survey_response_choices (
@@ -51,5 +51,5 @@ CREATE TABLE survey_response_choices (
   FOREIGN KEY (survey_response_id) REFERENCES survey_responses(id)
 );
 
-CREATE UNIQUE INDEX ON survey_response_choices(survey_choice_id, survey_response_id);
+ALTER TABLE survey_response_choices ADD UNIQUE (survey_choice_id, survey_response_id);
 CREATE INDEX ON survey_response_choices(survey_response_id);

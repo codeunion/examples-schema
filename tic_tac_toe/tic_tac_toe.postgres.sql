@@ -13,7 +13,7 @@ CREATE TABLE users (
   updated_at TIMESTAMP NOT NULL
 );
 
-CREATE UNIQUE INDEX ON users(email);
+ALTER TABLE users ADD UNIQUE (email);
 
 CREATE TABLE games (
   id SERIAL PRIMARY KEY,
@@ -35,9 +35,9 @@ CREATE TABLE games_players (
   FOREIGN KEY (player_id) REFERENCES users(id)
 );
 
-CREATE UNIQUE INDEX ON games_players(game_id, token);
+ALTER TABLE games_players ADD UNIQUE (game_id, token);
 
-CREATE UNIQUE INDEX ON games_players(game_id, player_id);
+ALTER TABLE games_players ADD UNIQUE (game_id, player_id);
 CREATE INDEX ON games_players(player_id);
 
 CREATE TABLE turns (
@@ -50,9 +50,9 @@ CREATE TABLE turns (
   FOREIGN KEY (player_id) REFERENCES users(id)
 );
 
-CREATE UNIQUE INDEX ON turns(game_id, position);
+ALTER TABLE turns ADD UNIQUE (game_id, position);
 CREATE INDEX ON turns(game_id, player_id);
 CREATE INDEX ON turns(player_id);
 
-CREATE UNIQUE INDEX ON turns(game_id, position);
-CREATE UNIQUE INDEX ON turns(game_id)
+ALTER TABLE turns ADD UNIQUE (game_id, position);
+ALTER TABLE turns ADD UNIQUE (game_id);
