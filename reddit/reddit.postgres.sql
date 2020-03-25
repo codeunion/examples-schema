@@ -29,7 +29,8 @@ CREATE TABLE submission_votes (
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL,
   FOREIGN KEY (submission_id) REFERENCES submissions(id),
-  FOREIGN KEY (voter_id) REFERENCES users(id)
+  FOREIGN KEY (voter_id) REFERENCES users(id),
+  CHECK(SCORE IN (-1,1))
 );
 
 ALTER TABLE submission_votes ADD UNIQUE (submission_id, voter_id);
@@ -60,7 +61,8 @@ CREATE TABLE comment_votes (
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL,
   FOREIGN KEY (comment_id) REFERENCES comments(id),
-  FOREIGN KEY (voter_id) REFERENCES users(id)
+  FOREIGN KEY (voter_id) REFERENCES users(id),
+  CHECK(score IN (-1, 1))
 );
 
 ALTER TABLE comment_votes ADD UNIQUE (comment_id, voter_id);

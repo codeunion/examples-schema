@@ -47,7 +47,8 @@ CREATE TABLE turns (
   position INTEGER NOT NULL,
   created_at TIMESTAMP NOT NULL,
   FOREIGN KEY (game_id) REFERENCES games(id),
-  FOREIGN KEY (player_id) REFERENCES users(id)
+  FOREIGN KEY (player_id) REFERENCES users(id),
+  CHECK(position BETWEEN 1 AND 9)
 );
 
 ALTER TABLE turns ADD UNIQUE (game_id, position);

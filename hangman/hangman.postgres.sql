@@ -28,7 +28,8 @@ CREATE TABLE games (
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL,
   FOREIGN KEY (player_id) REFERENCES users(id),
-  FOREIGN KEY (phrase_id) REFERENCES phrases(id)
+  FOREIGN KEY (phrase_id) REFERENCES phrases(id),
+  CHECK(guess_limit > 0)
 );
 
 CREATE INDEX ON games(player_id);

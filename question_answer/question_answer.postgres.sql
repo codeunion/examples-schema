@@ -47,7 +47,8 @@ CREATE TABLE answer_votes (
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL,
   FOREIGN KEY (answer_id) REFERENCES answers(id),
-  FOREIGN KEY (voter_id) REFERENCES users(id)
+  FOREIGN KEY (voter_id) REFERENCES users(id),
+  CHECK(score IN (-1, 1))
 );
 
 ALTER TABLE answer_votes ADD UNIQUE (answer_id, voter_id);
