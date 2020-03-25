@@ -1,8 +1,8 @@
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  email VARCHAR(255) NOT NULL,
-  username VARCHAR(255) NOT NULL,
-  password_digest VARCHAR(255) NOT NULL,
+  email TEXT NOT NULL,
+  username TEXT NOT NULL,
+  password_digest TEXT NOT NULL,
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL
 );
@@ -13,7 +13,7 @@ CREATE UNIQUE INDEX ON users(email);
 CREATE TABLE submissions (
   id SERIAL PRIMARY KEY,
   author_id INTEGER NOT NULL,
-  url VARCHAR(255) NOT NULL,
+  url TEXT NOT NULL,
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL,
   FOREIGN KEY (author_id) REFERENCES users(id)

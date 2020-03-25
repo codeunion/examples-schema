@@ -1,8 +1,8 @@
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  email VARCHAR(255) NOT NULL,
-  username VARCHAR(255) NOT NULL,
-  password_digest VARCHAR(255) NOT NULL,
+  email TEXT NOT NULL,
+  username TEXT NOT NULL,
+  password_digest TEXT NOT NULL,
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL
 );
@@ -14,7 +14,7 @@ CREATE TABLE questions (
   id SERIAL PRIMARY KEY,
   author_id INTEGER NOT NULL,
   best_answer_id INTEGER,
-  title VARCHAR(255) NOT NULL,
+  title TEXT NOT NULL,
   body TEXT NOT NULL,
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL,

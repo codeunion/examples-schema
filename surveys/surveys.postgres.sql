@@ -1,7 +1,7 @@
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  email VARCHAR(255) NOT NULL,
-  password_digest VARCHAR(255) NOT NULL,
+  email TEXT NOT NULL,
+  password_digest TEXT NOT NULL,
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL
 );
@@ -11,7 +11,7 @@ CREATE UNIQUE INDEX ON users(email);
 CREATE TABLE surveys (
   id SERIAL PRIMARY KEY,
   author_id INTEGER NOT NULL,
-  title VARCHAR(255) NOT NULL,
+  title TEXT NOT NULL,
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL,
   FOREIGN KEY (author_id) REFERENCES users(id)
@@ -22,7 +22,7 @@ CREATE INDEX ON surveys(author_id);
 CREATE TABLE survey_choices (
   id SERIAL PRIMARY KEY,
   survey_id INTEGER NOT NULL,
-  description VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
   FOREIGN KEY (survey_id) REFERENCES surveys(id)
 );
 

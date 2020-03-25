@@ -6,8 +6,8 @@
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  email VARCHAR(255) NOT NULL,
-  password_digest VARCHAR(255) NOT NULL,
+  email TEXT NOT NULL,
+  password_digest TEXT NOT NULL,
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP NOT NULL
 );
@@ -16,7 +16,7 @@ CREATE UNIQUE INDEX ON users(email);
 
 CREATE TABLE phrases (
   id SERIAL PRIMARY KEY,
-  body VARCHAR(255) NOT NULL
+  body TEXT NOT NULL
 );
 
 CREATE TABLE games (
